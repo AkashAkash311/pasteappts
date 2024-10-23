@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import Home from "./components/Home"
+// import Paste from "./components/Paste"
+// import ViewPaste from "./components/ViewPaste"
+import Navbar from "./components/Navbar"
+
+
+const router = createBrowserRouter(
+  [
+    {
+      path:"/",
+      element:
+      <div className="w-full h-full flex flex-col">
+        <Navbar/>
+        <Home/>
+      </div>
+    },
+    {
+      path:"/pastes",
+      element: <div className="w-full h-full flex flex-col">
+      <Navbar/>
+      {/* <Paste/> */}
+    </div>
+    },
+    {
+      path:"/pastes/:id",
+      element: <div className="w-full h-full flex flex-col">
+      <Navbar/>
+      {/* <ViewPaste/> */}
+    </div>,
+    }
+  ]
+)
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <RouterProvider router={router}/>
+  )
 }
 
-export default App;
+export default App

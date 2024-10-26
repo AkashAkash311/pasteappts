@@ -2,7 +2,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Home from "./components/Home"
 import Paste from "./components/Paste"
-// import ViewPaste from "./components/ViewPaste"
+import ViewPaste from "./components/ViewPaste"
 import Navbar from "./components/Navbar"
 
 
@@ -27,7 +27,7 @@ const router = createBrowserRouter(
       path:"/pastes/:id",
       element: <div className="w-full h-full flex flex-col">
       <Navbar/>
-      {/* <ViewPaste/> */}
+      <ViewPaste/>
     </div>,
     }
   ]

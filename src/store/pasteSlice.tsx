@@ -3,8 +3,7 @@ import { toast } from "react-hot-toast";
 
 // Define a type for the paste
 interface Paste {
-  _id: string; // Add other properties as needed
-  // additional properties can be added here
+  _id: string; 
 }
 
 // Define a type for the initial state

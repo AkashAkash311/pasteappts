@@ -18,6 +18,7 @@ const Paste = () => {
   const filteredPastes = pastes.filter((paste:any) =>
     paste.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  console.log("adsbrsadxgdsfc", filteredPastes)
 
   return (
     <div className="w-full h-full py-10 max-w-[1200px] mx-auto px-5 lg:px-0">

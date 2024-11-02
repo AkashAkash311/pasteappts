@@ -9,7 +9,7 @@ const Home = () => {
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [searchParams, setSearchParams] = useSearchParams(); 
-  const pasteId = searchParams.get("pasteId"); // Get pasteId from the search params
+  const pasteId = searchParams.get("pasteId");
   const pastes = useSelector((state:any) => state.paste.pastes);
   const dispatch = useDispatch();
 
@@ -24,7 +24,6 @@ const Home = () => {
     };
 
     if (pasteId) {
-      // If pasteId is present, update the paste
       dispatch(updatePastes(paste));
     } else {
       dispatch(addToPastes(paste));
@@ -33,7 +32,6 @@ const Home = () => {
     setTitle("");
     setValue("");
 
-    // Remove the pasteId from the URL after creating/updating a paste
     setSearchParams({});
   };
 
@@ -41,7 +39,6 @@ const Home = () => {
     setTitle("");
     setValue("");
     setSearchParams({});
-    // navigate("/");
   };
 
   useEffect(() => {
@@ -64,7 +61,6 @@ const Home = () => {
             placeholder="Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            // Dynamic width based on whether pasteId is present
             className={`${
               pasteId ? "w-[80%]" : "w-[85%]"
             } text-black border border-input rounded-md p-2`}
@@ -99,11 +95,9 @@ const Home = () => {
 
               <div className="w-[13px] h-[13px] rounded-full flex items-center justify-center p-[1px] overflow-hidden bg-[rgb(45,200,66)]" />
             </div>
-            {/* Circle and copy btn */}
             <div
               className={`w-fit rounded-t flex items-center justify-between gap-x-4 px-4`}
             >
-              {/*Copy  button */}
               <button
                 className={`flex justify-center items-center  transition-all duration-300 ease-in-out group`}
                 onClick={() => {

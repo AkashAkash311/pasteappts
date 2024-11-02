@@ -8,7 +8,7 @@ import { FormatDate } from "../utils/FormateDate";
 const Paste = () => {
   const pastes = useSelector((state:any) => state.paste.pastes);
   const dispatch = useDispatch();
-  const [searchTerm, setSearchTerm] = useState(""); // State to hold the search term
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleDelete = (id:any) => {
     dispatch(removeFromPastes(id));
@@ -29,8 +29,8 @@ const Paste = () => {
             type="search"
             placeholder="Search paste here..."
             className="focus:outline-none w-full bg-transparent"
-            value={searchTerm} // Bind the input to searchTerm state
-            onChange={(e) => setSearchTerm(e.target.value)} // Update searchTerm on input change
+            value={searchTerm} 
+            onChange={(e) => setSearchTerm(e.target.value)} 
           />
         </div>
 
@@ -46,7 +46,6 @@ const Paste = () => {
                   key={paste?._id}
                   className="border border-[rgba(128,121,121,0.3)] w-full gap-y-6 justify-between flex flex-col sm:flex-row p-4 rounded-[0.3rem]"
                 >
-                  {/* heading and Description */}
                   <div className="w-[50%] flex flex-col space-y-3">
                     <p className="text-4xl font-semibold ">{paste?.title}</p>
                     <p className="text-sm font-normal line-clamp-3 max-w-[80%] text-[#707070]">
@@ -54,12 +53,11 @@ const Paste = () => {
                     </p>
                   </div>
 
-                  {/* icons */}
                   <div className="flex flex-col gap-y-4 sm:items-end">
                     <div className="flex gap-2 flex-wrap sm:flex-nowrap">
                       <button
                         className="p-2 rounded-[0.2rem] bg-white border border-[#c7c7c7]  hover:bg-transparent group hover:border-blue-500"
-                        // onClick={() => toast.error("Not working")}
+                        onClick={() => toast.error("Not working")}
                       >
                         <a href={`/?pasteId=${paste?._id}`}>
                           <PencilLine
